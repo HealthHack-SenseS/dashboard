@@ -1,5 +1,7 @@
 import React from 'react';
 
+import NavButton from './NavButton';
+
 export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -10,31 +12,31 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <div className="navbar">
-        <div
-          className="nav__button"
+      <div>
+        <NavButton
+          navLabel="home"
+          activeNav={this.props.activeNav}
+          iconClass="fa fa-home"
           onClick={this.props.handleNavHomeClick}
-        >
-          <i className="fa fa-home"></i>
-        </div>
-        <div
-          className="nav__button"
+        />
+        <NavButton
+          navLabel="graph"
+          activeNav={this.props.activeNav}
+          iconClass="fa fa-bar-chart"
           onClick={this.props.handleNavGraphClick}
-        >
-          <i className="fa fa-line-chart"></i>
-        </div>
-        <div
-          className="nav__button"
+        />
+        <NavButton
+          navLabel="tips"
+          activeNav={this.props.activeNav}
+          iconClass="fa fa-lightbulb-o"
           onClick={this.props.handleNavTipsClick}
-        >
-          <i className="fa fa-lightbulb-o"></i>
-        </div>
-        <div
-          className="nav__button"
+        />
+        <NavButton
+          navLabel="settings"
+          activeNav={this.props.activeNav}
+          iconClass="fa fa-cog"
           onClick={this.props.handleNavSettingsClick}
-        >
-          <i className="fa fa-cog"></i>
-        </div>
+        />
       </div>
     );
   }

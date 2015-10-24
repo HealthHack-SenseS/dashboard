@@ -1,2 +1,2 @@
-# Template
-Template for web dev projects
+# SenseS Dashboard
+User interface for SenseS

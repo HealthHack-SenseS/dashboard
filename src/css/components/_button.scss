@@ -1,0 +1,11 @@
+.button {
+  display: inline-block;
+  border: 1px solid #333;
+  padding: 3px 10px;
+  @include border-radius(4px);
+  @include transition(all 200ms);
+}
+
+.button:hover {
+  cursor: pointer;
+}

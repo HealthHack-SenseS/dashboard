@@ -1,0 +1,26 @@
+.content {
+  height: calc(100% - #{$nav-height});
+  overflow: scroll;
+}
+
+.page {
+  padding: 15px;
+}
+
+.page-anim-enter {
+    opacity: 0.00;
+    @include transition(all 0.2s);
+}
+
+.page-anim-enter.page-anim-enter-active {
+    opacity: 1;
+}
+
+.page-anim-leave {
+    opacity: 1;
+    @include transition(all 0.2s);
+}
+
+.page-anim-leave.page-anim-leave-active {
+    opacity: 0.00;
+}

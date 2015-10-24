@@ -3,5 +3,12 @@
 
 @import 'base/base';
 
+@import 'layout/layout';
+
+@import 'components/button';
+@import 'components/home-page';
+@import 'components/settings-page';
+@import 'components/mood-rating';
+@import 'components/tip-preview';
+@import 'components/tip-page';
 @import 'components/nav';
-@import 'components/body';

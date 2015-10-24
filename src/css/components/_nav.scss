@@ -5,15 +5,22 @@
   background-color: $nav-background-color;
 }
 
-.nav__button {
+.nav__button,
+.nav__button--active {
   display: inline-block;
   width: 25%;
   padding-top: 3px;
   font-size: $nav-button-height;
   text-align: center;
   cursor: pointer;
+  @include transition(all 200ms);
 }
 
-.nav_button:hover {
+.nav__button:hover {
+  color: $nav-text-color-active;
   cursor: pointer;
+}
+
+.nav__button--active {
+  color: $nav-text-color-active;
 }

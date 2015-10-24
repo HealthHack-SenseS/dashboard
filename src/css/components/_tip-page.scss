@@ -1,0 +1,22 @@
+.tip-page__back-button {
+  padding: 15px;
+  border-bottom: 1px solid $main-border-color;
+  font-size: 15px;
+}
+
+.tip-page__content {
+  padding: 15px;
+}
+
+.tip-page__title {
+  margin-top: 5px;
+}
+
+.tip-page__button-container {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.tip-page__start-button {
+  @include button(#0066FF);
+}

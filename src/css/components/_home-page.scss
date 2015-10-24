@@ -1,0 +1,29 @@
+.home-page__title {
+  margin: 10px 0 0;
+}
+
+.home-page__mood-assessment {
+  
+}
+
+.home-page__mood-rating {
+  font-size: 150px;
+  text-align: center;
+}
+
+.home-page__mood-feedback {
+  text-align: center;
+}
+
+.home-page__mood-feedback-buttons {
+  margin-top: 20px;
+}
+
+.home-page__mood-correct {
+  @include button(green);
+  margin-right: 20px;
+}
+
+.home-page__mood-incorrect {
+  @include button(red);
+}
