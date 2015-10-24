@@ -17,7 +17,8 @@ export default class App extends React.Component {
     this.state = {
       activePage: 'home',
       activeNav: 'home',
-      stressData: {}
+      stressData: {},
+      moodAssessment: 'bad'
     };
 
     this.handleRateMood = this.handleRateMood.bind(this);
@@ -27,7 +28,8 @@ export default class App extends React.Component {
     this.handleNavSettingsClick = this.handleNavSettingsClick.bind(this);
     this.handleMusicTipClick = this.handleMusicTipClick.bind(this);
     this.handleBackToTipsClick = this.handleBackToTipsClick.bind(this);
-    this.handleGoToMoodPage = this.handleGoToMoodPage.bind(this);
+    this.handleMoodCorrectClick = this.handleMoodCorrectClick.bind(this);
+    this.handleMoodIncorrectClick = this.handleMoodIncorrectClick.bind(this);
   }
 
   setPage(page) {
@@ -65,8 +67,12 @@ export default class App extends React.Component {
     this.setPage('tips');
   }
 
-  handleGoToMoodPage() {
-    this.setPage(null);
+  handleMoodCorrectClick() {
+    this.setState({ activePage: 'mood-correct' });
+  }
+
+  handleMoodIncorrectClick() {
+    this.setState({ activePage: 'mood-incorrect' });
   }
 
   handleLoadGraphData() {
@@ -79,14 +85,6 @@ export default class App extends React.Component {
   render() {
     let page;
     switch (this.state.activePage) {
-      case "home":
-        page = (
-          <HomePage
-            moodAssessment="good"
-            handleGoToMoodPage={this.handleGoToMoodPage}
-          />
-        );
-        break;
       case "graph":
         page = (
           <GraphPage
@@ -112,8 +110,30 @@ export default class App extends React.Component {
       case "settings":
         page = <SettingsPage/>;
         break;
+      case "mood-correct":
+        page = (
+          <MoodRating
+            feedbackRequired={false}
+          />
+        );
+        break;
+      case "mood-incorrect":
+        page = (
+          <MoodRating
+            feedbackRequired={true}
+          />
+        );
+        break;
+      case "home":
       default:
-        page = "mood";
+        page = (
+          <HomePage
+            moodAssessment={this.state.moodAssessment}
+            handleMoodCorrectClick={this.handleMoodCorrectClick}
+            handleMoodIncorrectClick={this.handleMoodIncorrectClick}
+          />
+        );
+        break;
         break;
     }
 
