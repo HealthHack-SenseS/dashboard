@@ -1,7 +1,8 @@
 import React from 'react';
 
 import Page from './Page';
-import MoodRating from './MoodRating';
+import MoodCorrect from './MoodCorrect';
+import MoodIncorrect from './MoodIncorrect';
 import HomePage from './HomePage';
 import GraphPage from './GraphPage';
 import TipsPage from './TipsPage';
@@ -112,16 +113,12 @@ export default class App extends React.Component {
         break;
       case "mood-correct":
         page = (
-          <MoodRating
-            feedbackRequired={false}
-          />
+          <MoodCorrect/>
         );
         break;
       case "mood-incorrect":
         page = (
-          <MoodRating
-            feedbackRequired={true}
-          />
+          <MoodIncorrect/>
         );
         break;
       case "home":
