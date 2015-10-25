@@ -19,7 +19,8 @@ export default class App extends React.Component {
       userName: 'Jane',
       activePage: 'home',
       activeNav: 'home',
-      stressData: [],
+      stressDataMinutes: [],
+      stressDataHours: [],
       moodAssessment: 'bad'
     };
 
@@ -35,6 +36,9 @@ export default class App extends React.Component {
     this.handleRateMood = this.handleRateMood.bind(this);
     this.handleMoodFeedback = this.handleMoodFeedback.bind(this);
     this.handleUserNameChange = this.handleUserNameChange.bind(this);
+    this.handleLoadGraphData = this.handleLoadGraphData.bind(this);
+    this.handleLoadMinuteData = this.handleLoadMinuteData.bind(this);
+    this.handleLoadHourData = this.handleLoadHourData.bind(this);
   }
 
   setPage(page) {
@@ -92,12 +96,29 @@ export default class App extends React.Component {
   }
 
   handleLoadGraphData() {
-      console.log('loaded?');
-    httpGET('http://149.171.22.31:8083/query?db=shimmer&q=SELECT mean(value) FROM /GSR_CAL.*/ WHERE time > now() - 1h GROUP BY time(1m)').then((response) => {
-      let stressData = JSON.parse(response).results[0].series[0].values;
-      this.setState({ stressData });
+    this.handleLoadMinuteData();
+    this.handleLoadHourData();
+  }
+
+  handleLoadMinuteData() {
+    httpGET(`http://149.171.22.31:8086/query?db=shimmer&q=${encodeURIComponent('SELECT mean(value) FROM /GSR_CAL.*/ WHERE time > now() - 5m GROUP BY time(5s)')}`).then((response) => {
+      let stressDataMinutes = JSON.parse(response).results[0].series[0].values;
+      this.setState({ stressDataMinutes });
+      window.setTimeout(this.handleLoadMinuteData, 5000);
     }).catch((error) => {
-      console.error(`Error loading graph data: ${error}`);
+      console.error(`Error loading graph minute data: ${error}`);
+      window.setTimeout(this.handleLoadMinuteData, 5000);
+    });
+  }
+
+  handleLoadHourData() {
+    httpGET(`http://149.171.22.31:8086/query?db=shimmer&q=${encodeURIComponent('SELECT mean(value) FROM /GSR_CAL.*/ WHERE time > now() - 1h GROUP BY time(1m)')}`).then((response) => {
+      let stressDataHours = JSON.parse(response).results[0].series[0].values;
+      this.setState({ stressDataHours });
+      window.setTimeout(this.handleLoadMinuteData, 60000);
+    }).catch((error) => {
+      console.error(`Error loading graph hour data: ${error}`);
+      window.setTimeout(this.handleLoadMinuteData, 60000);
     });
   }
 
@@ -107,7 +128,8 @@ export default class App extends React.Component {
       case "graph":
         page = (
           <GraphPage
-            stressData={this.state.stressData}
+            stressDataMinutes={this.state.stressDataMinutes}
+            stressDataHours={this.state.stressDataHours}
             handleLoadGraphData={this.handleLoadGraphData}
           />
         );

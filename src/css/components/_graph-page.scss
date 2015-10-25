@@ -1,4 +1,23 @@
+.graph-page__title {
+  margin-bottom: 40px;
+}
+
+.rd3-chart {
+  -webkit-transform: translateX(-5%);
+  transform: translateX(-5%);
+}
+
 .rd3-linechart-xaxis,
 .rd3-linechart-yaxis {
   display: none;
+}
+
+.graph-page {
+  text-align: center;
+}
+
+.graph-page__x-label {
+  display: inline-block;
+  -webkit-transform: translateY(-30px);
+  transform: translateY(-30px);
 }
