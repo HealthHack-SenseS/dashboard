@@ -16,6 +16,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: 'Jane',
       activePage: 'home',
       activeNav: 'home',
       stressData: {},
@@ -32,6 +33,8 @@ export default class App extends React.Component {
     this.handleMoodCorrectClick = this.handleMoodCorrectClick.bind(this);
     this.handleMoodIncorrectClick = this.handleMoodIncorrectClick.bind(this);
     this.handleRateMood = this.handleRateMood.bind(this);
+    this.handleMoodFeedback = this.handleMoodFeedback.bind(this);
+    this.handleUserNameChange = this.handleUserNameChange.bind(this);
   }
 
   setPage(page) {
@@ -78,7 +81,11 @@ export default class App extends React.Component {
   }
 
   handleMoodFeedback(feedback) {
+    this.setState({ moodAssessment: feedback });
+  }
 
+  handleUserNameChange(event) {
+    this.setState({ userName: event.target.value });
   }
 
   handleLoadGraphData() {
@@ -114,7 +121,12 @@ export default class App extends React.Component {
         );
         break;
       case "settings":
-        page = <SettingsPage/>;
+        page = (
+          <SettingsPage
+            userName={this.state.userName}
+            handleUserNameChange={this.handleUserNameChange}
+          />
+        );
         break;
       case "mood-correct":
         page = (
@@ -134,6 +146,7 @@ export default class App extends React.Component {
       default:
         page = (
           <HomePage
+            userName={this.state.userName}
             moodAssessment={this.state.moodAssessment}
             handleMoodCorrectClick={this.handleMoodCorrectClick}
             handleMoodIncorrectClick={this.handleMoodIncorrectClick}

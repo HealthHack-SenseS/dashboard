@@ -8,6 +8,10 @@
   padding: 15px;
 }
 
+.tip-page__title-icon {
+  color: $highlight-color;
+}
+
 .tip-page__title {
   margin-top: 5px;
 }
@@ -18,5 +22,6 @@
 }
 
 .tip-page__start-button {
-  @include button(#0066FF);
+  margin-right: 10px;
+  @include button($highlight-color);
 }

@@ -29,7 +29,7 @@ export default class HomePage extends React.Component {
 
     return (
       <div className="page home-page">
-        <h1 className="home-page__title">Hi there, Jane</h1>
+        <h1 className="home-page__title">Hi there, {this.props.userName}</h1>
         <h4>{message}</h4>
         <div className="home-page__mood-rating">
           {icon}
