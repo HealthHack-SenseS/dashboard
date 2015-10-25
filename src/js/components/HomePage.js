@@ -15,15 +15,15 @@ export default class HomePage extends React.Component {
     switch (this.props.moodAssessment) {
       case "good":
         message = "Looks like you're having a really good day";
-        icon = <i className="fa fa-smile-o"></i>;
+        icon = <i className="home-page__mood-good fa fa-smile-o"></i>;
         break;
       case "ok":
         message = "Looks like you're having an ok day";
-        icon = <i className="fa fa-meh-o"></i>;
+        icon = <i className="home-page__mood-ok fa fa-meh-o"></i>;
         break;
       case "bad":
         message = "Looks like you're having a bit of a bad day";
-        icon = <i className="fa fa-frown-o"></i>;
+        icon = <i className="home-page__mood-bad fa fa-frown-o"></i>;
         break;
     }
 

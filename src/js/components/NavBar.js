@@ -12,7 +12,7 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="nav__container">
         <NavButton
           navLabel="home"
           activeNav={this.props.activeNav}

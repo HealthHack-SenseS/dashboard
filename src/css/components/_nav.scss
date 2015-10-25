@@ -5,9 +5,14 @@
   background-color: $nav-background-color;
 }
 
+.nav__container {
+  height: 100%;
+}
+
 .nav__button,
 .nav__button--active {
   display: inline-block;
+  height: 100%;
   width: 25%;
   padding-top: 3px;
   font-size: $nav-button-height;
@@ -17,10 +22,10 @@
 }
 
 .nav__button:hover {
-  color: $nav-text-color-active;
+  background-color: $active-highlight-color;
   cursor: pointer;
 }
 
 .nav__button--active {
-  color: $nav-text-color-active;
+  background-color: $active-highlight-color;
 }

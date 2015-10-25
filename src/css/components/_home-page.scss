@@ -11,6 +11,18 @@
   text-align: center;
 }
 
+.home-page__mood-good {
+  color: $good-mood-color;
+}
+
+.home-page__mood-ok {
+  color: $ok-mood-color;
+}
+
+.home-page__mood-bad {
+  color: $bad-mood-color;
+}
+
 .home-page__mood-feedback {
   text-align: center;
 }
@@ -20,10 +32,10 @@
 }
 
 .home-page__mood-correct {
-  @include button(green);
+  @include button($highlight-color);
   margin-right: 20px;
 }
 
 .home-page__mood-incorrect {
-  @include button(red);
+  @include button(#444);
 }

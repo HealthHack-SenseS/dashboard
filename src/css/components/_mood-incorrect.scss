@@ -1,0 +1,23 @@
+.mood-incorrect__inputs {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.mood-incorrect__input {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 60px;
+  text-align: center;
+}
+
+.mood-incorrect__input--good {
+  color: $good-mood-color;
+}
+
+.mood-incorrect__input--ok {
+  color: $ok-mood-color;
+}
+
+.mood-incorrect__input--bad {
+  color: $bad-mood-color;
+}

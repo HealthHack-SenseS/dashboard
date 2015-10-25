@@ -1,10 +1,17 @@
-$body-background-color: #eee;
+$highlight-color: #33CCFF;
+$active-highlight-color: #3399FF;
+
+$bad-mood-color: #BB0000;
+$ok-mood-color: #FFCC00;
+$good-mood-color: #33CC33;
+
+$body-background-color: #fff;
 $body-text-color: #444;
 
 $nav-height: 50px;
 $nav-button-height: 30px;
-$nav-background-color: #ccc;
-$nav-text-color: #666;
-$nav-text-color-active: #222;
+$nav-background-color: $highlight-color;
+$nav-text-color: white;
+$nav-text-color-active: #888;
 
-$main-border-color: #888;
+$main-border-color: #aaa;

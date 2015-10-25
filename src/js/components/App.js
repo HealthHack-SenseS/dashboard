@@ -31,6 +31,7 @@ export default class App extends React.Component {
     this.handleBackToTipsClick = this.handleBackToTipsClick.bind(this);
     this.handleMoodCorrectClick = this.handleMoodCorrectClick.bind(this);
     this.handleMoodIncorrectClick = this.handleMoodIncorrectClick.bind(this);
+    this.handleRateMood = this.handleRateMood.bind(this);
   }
 
   setPage(page) {
@@ -76,6 +77,10 @@ export default class App extends React.Component {
     this.setState({ activePage: 'mood-incorrect' });
   }
 
+  handleMoodFeedback(feedback) {
+
+  }
+
   handleLoadGraphData() {
     // httpGET('http://149.171.22.31:8083/query?db=shimmer&q=SELECT value FROM GSR_CAL').then((response) => {
     //   let stressData = JSON.parse(response).results[0].series[0].values;
@@ -113,12 +118,16 @@ export default class App extends React.Component {
         break;
       case "mood-correct":
         page = (
-          <MoodCorrect/>
+          <MoodCorrect
+            moodAssessment={this.state.moodAssessment}
+          />
         );
         break;
       case "mood-incorrect":
         page = (
-          <MoodIncorrect/>
+          <MoodIncorrect
+            handleMoodFeedback={this.handleMoodFeedback}
+          />
         );
         break;
       case "home":

@@ -23,5 +23,6 @@ html, body, #app, .app {
 }
 
 body {
-  background-color: #eee;
+  background-color: $body-background-color;
+  color: $body-text-color;
 }

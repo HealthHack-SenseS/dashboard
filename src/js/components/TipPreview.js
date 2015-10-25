@@ -9,10 +9,11 @@ export default class TipsPage extends React.Component {
   }
 
   render() {
+    let iconClass = this.props.iconClass ? `tip-preview__icon ${this.props.iconClass}` : "tip-preview__icon";
     return (
       <div className="tip-preview" onClick={this.props.onClick}>
         <h4 className="tip-preview__title">
-          <i className={this.props.iconClass}></i> {this.props.title}<i className="tip-preview__chevron fa fa-chevron-right"></i>
+          <i className={iconClass}></i> {this.props.title}<i className="tip-preview__chevron fa fa-chevron-right"></i>
         </h4>
       </div>
     );
