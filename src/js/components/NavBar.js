@@ -11,6 +11,11 @@ export default class NavBar extends React.Component {
   }
 
   render() {
+    let highlightIcon = false;
+    if (this.props.activePage === 'home' && this.props.moodFeedbackLevel >= 20) {
+      highlightIcon = true;
+    }
+
     return (
       <div className="nav__container">
         <NavButton
@@ -29,6 +34,7 @@ export default class NavBar extends React.Component {
         />
         <NavButton
           navLabel="tips"
+          highlightIcon={highlightIcon}
           activePage={this.props.activePage}
           activeNav={this.props.activeNav}
           iconClass="fa fa-lightbulb-o"

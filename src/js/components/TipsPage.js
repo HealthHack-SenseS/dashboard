@@ -19,12 +19,20 @@ export default class TipsPage extends React.Component {
           onClick={this.props.handleMusicTipClick}
         />
         <TipPreview
-          title="Watch some TV"
+          title="Watch some videos"
           iconClass="fa fa-television"
         />
         <TipPreview
-          title="Spend time with friends"
+          title="Connect with friends"
           iconClass="fa fa-users"
+        />
+        <TipPreview
+          title="Read"
+          iconClass="fa fa-book"
+        />
+        <TipPreview
+          title="Get active"
+          iconClass="fa fa-futbol-o"
         />
       </div>
     );
