@@ -1,3 +1,11 @@
+.mood-incorrect {
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+}
+
 .mood-incorrect__inputs {
   margin-top: 30px;
   text-align: center;

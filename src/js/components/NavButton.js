@@ -7,6 +7,10 @@ export default class NavButton extends React.Component {
       navClass += "--active";
     }
 
+    if (this.props.navLabel === 'tips' && this.props.activePage === 'mood-correct') {
+      navClass += " nav__button--highlight"
+    }
+
     return (
       <div
         onClick={this.props.onClick}

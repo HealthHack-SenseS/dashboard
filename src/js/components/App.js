@@ -19,7 +19,7 @@ export default class App extends React.Component {
       userName: 'Jane',
       activePage: 'home',
       activeNav: 'home',
-      stressData: {},
+      stressData: [],
       moodAssessment: 'bad'
     };
 
@@ -81,7 +81,10 @@ export default class App extends React.Component {
   }
 
   handleMoodFeedback(feedback) {
-    this.setState({ moodAssessment: feedback });
+    this.setState({
+      moodAssessment: feedback,
+      activePage: 'mood-correct'
+    });
   }
 
   handleUserNameChange(event) {
@@ -89,10 +92,13 @@ export default class App extends React.Component {
   }
 
   handleLoadGraphData() {
-    // httpGET('http://149.171.22.31:8083/query?db=shimmer&q=SELECT value FROM GSR_CAL').then((response) => {
-    //   let stressData = JSON.parse(response).results[0].series[0].values;
-    //   this.setState({ stressData });
-    // });
+      console.log('loaded?');
+    httpGET('http://149.171.22.31:8083/query?db=shimmer&q=SELECT mean(value) FROM /GSR_CAL.*/ WHERE time > now() - 1h GROUP BY time(1m)').then((response) => {
+      let stressData = JSON.parse(response).results[0].series[0].values;
+      this.setState({ stressData });
+    }).catch((error) => {
+      console.error(`Error loading graph data: ${error}`);
+    });
   }
 
   render() {
@@ -101,6 +107,7 @@ export default class App extends React.Component {
       case "graph":
         page = (
           <GraphPage
+            stressData={this.state.stressData}
             handleLoadGraphData={this.handleLoadGraphData}
           />
         );
@@ -163,6 +170,7 @@ export default class App extends React.Component {
         </div>
         <div className="nav">
           <NavBar
+            activePage={this.state.activePage}
             activeNav={this.state.activeNav}
             handleNavHomeClick={this.handleNavHomeClick}
             handleNavGraphClick={this.handleNavGraphClick}

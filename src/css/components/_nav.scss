@@ -21,6 +21,10 @@
   @include transition(all 200ms);
 }
 
+.nav__button--highlight {
+  color: $tip-icon-highlight-color;
+}
+
 .nav__button:hover {
   background-color: $active-highlight-color;
   cursor: pointer;

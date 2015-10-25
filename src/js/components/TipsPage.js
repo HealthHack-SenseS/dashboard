@@ -26,10 +26,6 @@ export default class TipsPage extends React.Component {
           title="Spend time with friends"
           iconClass="fa fa-users"
         />
-        <TipPreview
-          title="Fight the empire"
-          iconClass="fa fa-rebel"
-        />
       </div>
     );
   }

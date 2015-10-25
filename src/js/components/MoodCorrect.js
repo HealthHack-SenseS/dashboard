@@ -12,19 +12,19 @@ export default class MoodCorrect extends React.Component {
     let message;
     switch (this.props.moodAssessment) {
       case 'good':
-        message = "Glad to hear it! Thanks for the feedback, hope things keep going well"
+        message = "Awesome! Keep it up. If you are looking for something to do, try one of our proven relaxation tips."
         break;
       case 'ok':
-        message = "Thanks for the feedback, and hang in there. If you're worried, try some of the tips listed in this app"
+        message = "If you're looking to relax, try one of our tips"
         break;
       case 'bad':
-        message = "We're sorry to hear that, but thank you for the feedback. Take a break and try some of the tips listed in this app"
+        message = "I'm sorry to hear that. Try one of our proven relaxation tips"
         break;
     }
 
     return (
       <div className="page mood-correct">
-        <h4>{message}</h4>
+        <h4 className="mood-correct__message">{message}</h4>
       </div>
     );
   }

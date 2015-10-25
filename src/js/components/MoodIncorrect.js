@@ -23,8 +23,7 @@ export default class MoodIncorrect extends React.Component {
 
     return (
       <div className="page mood-incorrect">
-        <h3>Sorry about that!</h3>
-        <p>So that we can help you better in the future, how are you feeling at the moment?</p>
+        <h4>How would you best describe your current mood?</h4>
         <div className="mood-incorrect__inputs">
           <div
             className="mood-incorrect__input mood-incorrect__input--bad"
