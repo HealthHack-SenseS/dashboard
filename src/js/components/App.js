@@ -16,12 +16,13 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: 'Jane',
+      userName: 'George',
       activePage: 'home',
       activeNav: 'home',
       stressDataMinutes: [],
       stressDataHours: [],
-      moodAssessment: 'bad'
+      moodAssessment: 'bad',
+      moodFeedbackLevel: 25
     };
 
     this.handleRateMood = this.handleRateMood.bind(this);
@@ -33,6 +34,7 @@ export default class App extends React.Component {
     this.handleBackToTipsClick = this.handleBackToTipsClick.bind(this);
     this.handleMoodCorrectClick = this.handleMoodCorrectClick.bind(this);
     this.handleMoodIncorrectClick = this.handleMoodIncorrectClick.bind(this);
+    this.handleMoodFeedbackChange = this.handleMoodFeedbackChange.bind(this);
     this.handleRateMood = this.handleRateMood.bind(this);
     this.handleMoodFeedback = this.handleMoodFeedback.bind(this);
     this.handleUserNameChange = this.handleUserNameChange.bind(this);
@@ -93,6 +95,10 @@ export default class App extends React.Component {
 
   handleUserNameChange(event) {
     this.setState({ userName: event.target.value });
+  }
+
+  handleMoodFeedbackChange(event) {
+    this.setState({ moodFeedbackLevel: event.target.value });
   }
 
   handleLoadGraphData() {
@@ -177,6 +183,8 @@ export default class App extends React.Component {
           <HomePage
             userName={this.state.userName}
             moodAssessment={this.state.moodAssessment}
+            moodFeedbackLevel={this.state.moodFeedbackLevel}
+            handleMoodFeedbackChange={this.handleMoodFeedbackChange}
             handleMoodCorrectClick={this.handleMoodCorrectClick}
             handleMoodIncorrectClick={this.handleMoodIncorrectClick}
           />
@@ -194,6 +202,7 @@ export default class App extends React.Component {
           <NavBar
             activePage={this.state.activePage}
             activeNav={this.state.activeNav}
+            moodFeedbackLevel={this.state.moodFeedbackLevel}
             handleNavHomeClick={this.handleNavHomeClick}
             handleNavGraphClick={this.handleNavGraphClick}
             handleNavTipsClick={this.handleNavTipsClick}

@@ -18,6 +18,10 @@
   text-align: center;
 }
 
+.mood-incorrect__input:last-child {
+  margin-right: 0;
+}
+
 .mood-incorrect__input--good {
   color: $good-mood-color;
 }

@@ -53,7 +53,7 @@ export default class GraphPage extends React.Component {
         <LineChart
           data={lineMinuteData}
           width='100%'
-          height={150}
+          height={200}
           viewBoxObject={{
             x: 0,
             y: 0,
@@ -65,7 +65,7 @@ export default class GraphPage extends React.Component {
         <LineChart
           data={lineHourData}
           width='100%'
-          height={150}
+          height={200}
           viewBoxObject={{
             x: 0,
             y: 0,
