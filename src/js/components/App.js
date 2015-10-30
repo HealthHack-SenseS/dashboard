@@ -107,7 +107,7 @@ export default class App extends React.Component {
   }
 
   handleLoadMinuteData() {
-    httpGET(`http://149.171.22.31:8086/query?db=shimmer&q=${encodeURIComponent('SELECT mean(value) FROM /GSR_CAL.*/ WHERE time > now() - 5m GROUP BY time(5s)')}`).then((response) => {
+    httpGET(`http://52.64.229.230:8086/query?db=shimmer&q=${encodeURIComponent('SELECT mean(value) FROM /GSR_CAL.*/ WHERE time > now() - 5m GROUP BY time(5s)')}`).then((response) => {
       let stressDataMinutes = JSON.parse(response).results[0].series[0].values;
       this.setState({ stressDataMinutes });
       window.setTimeout(this.handleLoadMinuteData, 5000);
@@ -118,7 +118,7 @@ export default class App extends React.Component {
   }
 
   handleLoadHourData() {
-    httpGET(`http://149.171.22.31:8086/query?db=shimmer&q=${encodeURIComponent('SELECT mean(value) FROM /GSR_CAL.*/ WHERE time > now() - 1h GROUP BY time(1m)')}`).then((response) => {
+    httpGET(`http://52.64.229.230:8086/query?db=shimmer&q=${encodeURIComponent('SELECT mean(value) FROM /GSR_CAL.*/ WHERE time > now() - 1h GROUP BY time(1m)')}`).then((response) => {
       let stressDataHours = JSON.parse(response).results[0].series[0].values;
       this.setState({ stressDataHours });
       window.setTimeout(this.handleLoadMinuteData, 60000);
