@@ -70,7 +70,7 @@ export default class App extends React.Component {
   }
 
   handleLoadGraphData() {
-    httpGET('http://52.64.229.230:8083/query?db=shimmer&q=SELECT value FROM GSR_CAL').then((response) => {
+    httpGET('http://52.64.229.230:8086/query?db=shimmer&q=SELECT value FROM GSR_CAL').then((response) => {
       let stressData = JSON.parse(response).results[0].series[0].values;
       this.setState({ stressData });
     });
